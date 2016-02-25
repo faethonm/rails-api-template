@@ -19,9 +19,8 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
   gem 'spring'
-end
-
-group :test do
+  
+  gem "shoulda-matchers"
   gem 'rspec-rails', '~> 2.14'
   gem 'factory_girl_rails'
   gem 'ffaker'
