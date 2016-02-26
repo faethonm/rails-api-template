@@ -26,6 +26,8 @@ end
 
 
 RSpec.configure do |config|
+  #Including to test requests
+  config.include Request::JsonHelpers, :type => :controller
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
