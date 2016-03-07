@@ -31,5 +31,22 @@ describe Authenticable do
       expect(json_response[:errors]).to eql ('Not authenticated')
     end
   end
-end
 
+  describe '#user_signed_in?' do
+    context 'when there is an active user signed in' do
+      before do
+        @user = FactoryGirl.create(:user)
+        authentication.stub(:current_user).and_return(@user)
+      end
+      it { should be_user_signed_in }
+    end
+
+    context 'when there is not an active user signed in' do
+      before do
+        authentication.stub(:current_user).and_return(@user)
+      end
+      it { should_not be_user_signed_in }
+    end
+  end
+
+end
